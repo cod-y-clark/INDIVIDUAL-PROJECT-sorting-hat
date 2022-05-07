@@ -4,7 +4,7 @@ let domString = ''
 // data for app
 let students = [];
 const house = ['Gryffindor', 'Hufflepuff', 'Slytherin', 'Ravenclaw']
-const randomHouse = house[Math.floor(Math.random() * house.length)]
+// const randomHouse = house[Math.floor(Math.random() * house.length)]
 
 // informative console.log
 console.log(students);
@@ -24,7 +24,7 @@ const introCard = () => {
               <p class="card-text">Half-giant jinxes peg-leg gillywater broken glasses large black dog Great Hall. Nearly-Headless Nick now string them together, and answer me this, which creature would you be unwilling to kiss?</p>
               <hr>
               <p>Toad-like smile Flourish and Blotts he knew I’d come back Quidditch World Cup.</p>
-              <button id="form-button" href="#" class="btn btn-primary" type="submit">Sort a new student!</button>
+              <button id="form-button" href="#" class="btn btn-primary">Sort a new student!</button>
           </div>
         </div>`
   renderToDom('#app', domString)
@@ -39,7 +39,7 @@ const createForm = () => {
                       <label class="form-label">Student:</label>
                       <input type="text" class="form-control" id="studentNameForm" placeholder="N.K. Jemisin">
                     </div>
-                    <button type="submit" class="btn btn-primary">Sort!</button>
+                    <button type="submit" class="btn btn-primary" type="submit">Sort!</button>
                   </form>`
   renderToDom('#form', domString)
 };
@@ -53,11 +53,11 @@ const openForm = () => {
 const sortStudent = () => {
   document.querySelector("#submitForm").addEventListener("submit", (e) => {
     e.preventDefault();
-    const random = Math.floor(Math.random() * house.length);
+    const sort = Math.floor(Math.random() * house.length);
     const newStudentObj = {
       id: students.length + 1,
       name: document.querySelector("#fullName").value,
-      house: houses[random],
+      house: houses[sort],
     };
     students.push(newStudentObj);
     createForm.reset();
